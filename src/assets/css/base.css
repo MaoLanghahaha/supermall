@@ -1,0 +1,27 @@
+@import './normalize.css';
+@import '~assets/font/iconfont.css';
+
+:root {
+  --color-text: #666;
+  --color-high-text: #ff5777; /* 文字高亮色 */
+  --color-tint: #ff8198; /* 组件背景色 */
+  --color-background: #fff;
+  --font-size: 14px;
+  --line-height: 1.5;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Liberation Sans", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, SimSun, "WenQuanYi Zen Hei Sharp", sans-serif;
+  font-size: var(--font-size);
+  color: var(--color-text);
+  background: var(--color-background);
+  line-height: var(--line-height);
+  user-select: none;
+}
