@@ -1,14 +1,19 @@
 <template>
-  <div>我的</div>
+  <div>
+
+  </div>
 </template>
 
 <script>
+
 export default {
   name: 'Profile',
   components: {
+
   }
 }
 </script>
 
 <style scoped>
+
 </style>

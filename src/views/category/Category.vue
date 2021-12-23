@@ -1,5 +1,7 @@
 <template>
-  <div>分类</div>
+  <div id="category">
+
+  </div>
 </template>
 
 <script>
@@ -11,4 +13,5 @@ export default {
 </script>
 
 <style scoped>
+
 </style>

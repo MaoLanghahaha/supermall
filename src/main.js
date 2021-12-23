@@ -6,7 +6,8 @@ import 'ant-design-vue/dist/antd.css';
 
 
 Vue.use(Antd);
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
+Vue.prototype.$bus = new Vue();
 
 new Vue({
   router,

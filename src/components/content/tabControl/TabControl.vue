@@ -4,11 +4,7 @@
       v-for="(item, index) in titles"
       :key="index"
       @click="itemClick(index)"
-      :class="[
-        'tab-control-item',
-        { 'tab-control-item-active': index === curActiveItemIndex },
-      ]"
-    >
+      :class="['tab-control-item', { 'tab-control-item-active': index === curActiveItemIndex }]">
       <span>{{ item }}</span>
     </div>
   </div>
@@ -20,7 +16,7 @@ export default {
   props: {
     titles: {
       type: Array,
-      default () {
+      default () { // 对象或数组时使用函数
         return []
       }
     }
@@ -36,6 +32,7 @@ export default {
   methods: {
     itemClick (index) {
       this.curActiveItemIndex = index;
+      this.$emit("tabClick", index)
     }
   }
 }
