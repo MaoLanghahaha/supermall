@@ -38,7 +38,15 @@ export default {
   padding: 15px 0 20px;
   border-bottom: 4px solid #ddd;
 }
-.recommend-item > a{
+.recommend-item > a {
   color: var(--color-text);
+      display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.recommend-item > a > img {
+  width: 90%;
 }
 </style>

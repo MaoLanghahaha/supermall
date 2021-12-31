@@ -4,8 +4,9 @@
       v-for="(item, index) in titles"
       :key="index"
       @click="itemClick(index)"
-      :class="['tab-control-item', { 'tab-control-item-active': index === curActiveItemIndex }]">
-      <span>{{ item }}</span>
+      class="tab-control-item"
+    >
+      <span :style="itemActiveStyle(index)">{{ item }}</span>
     </div>
   </div>
 </template>
@@ -19,6 +20,14 @@ export default {
       default () { // 对象或数组时使用函数
         return []
       }
+    },
+    itemActiveColor: {
+      type: String,
+      default: "var(--color-tint)"
+    },
+    itemActiveBorBot: {
+      type: String,
+      default: "2px solid var(--color-tint)"
     }
   },
   data () {
@@ -28,6 +37,14 @@ export default {
     }
   },
   components: {
+  },
+  computed: {
+    itemActiveStyle () {
+      return (index) => {
+        return index === this.curActiveItemIndex ? { color: this.itemActiveColor, borderBottom: this.itemActiveBorBot } : {};
+      }
+
+    }
   },
   methods: {
     itemClick (index) {
@@ -52,9 +69,5 @@ export default {
 .tab-control-item > span {
   padding: 5px;
   width: 50px;
-}
-.tab-control-item-active > span {
-  color: var(--color-tint);
-  border-bottom: 2px solid var(--color-tint);
 }
 </style>

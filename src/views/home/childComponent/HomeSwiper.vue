@@ -1,7 +1,7 @@
 <template>
   <a-carousel autoplay>
     <div v-for="item in banners" :key="item.title">
-      <img :src="item.image" :alt="item.title" />
+      <img :src="item.image" :alt="item.title" @load.once="swiperImageLoad" />
     </div>
   </a-carousel>
 </template>
@@ -11,10 +11,20 @@ export default {
   name: 'HomeSwiper',
   props: {
     banners: {
-      type:Array,
-      default(){
+      type: Array,
+      default () {
         return []
       }
+    }
+  },
+  data () {
+    return {
+      isLoadSwiperImage: false
+    }
+  },
+  methods: {
+    swiperImageLoad () {
+      !this.isLoadSwiperImage? (this.$emit("swiperImageLoad"),this.isLoadSwiperImage = true): '';
     }
   }
 }
@@ -22,15 +32,7 @@ export default {
 
 <style scoped>
 /* For demo */
-.ant-carousel >>> .slick-slide {
-  text-align: center;
-  height: 200px;
-  line-height: 200px;
-  background: #364d79;
-  overflow: hidden;
-}
-
-.ant-carousel >>> .slick-slide h3 {
-  color: #fff;
+.ant-carousel .slick-slide img {
+  width: 100%;
 }
 </style>

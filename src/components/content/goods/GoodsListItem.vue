@@ -1,5 +1,5 @@
 <template>
-  <div class="goods-item">
+  <div class="goods-item" @click="itemClick">
     <img :src="goodItem.show.img" :alt="goodItem.title" @load="imageLoad" />
     <div class="goods-info">
       <p>{{ goodItem.title }}</p>
@@ -33,7 +33,16 @@ export default {
   methods: {
     imageLoad () {
       // 事件总线
-      this.$bus.$emit("itemImageLoad")
+      this.$bus.$emit("itemImageLoad");
+    },
+    itemClick () {
+      this.$router.push("/detail/"+this.goodItem.iid); // 动态路由params：http://localhost:8080/detail/1
+      // this.$router.push({ // query：http://localhost:8080/detail?id=1
+      //   path:'/detail',
+      //   query:{
+      //     id:1
+      //   }
+      // })
     }
   }
 }

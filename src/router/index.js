@@ -14,29 +14,51 @@ VueRouter.prototype.replace = function replace (location) {
   return originalReplace.call(this, location).catch(err => err)
 }
 
+const TabBarIndex = () => import('@/views/TabBarIndex');
 
 // 2、创建路由对象
 const routes = [
   {
     path: '',
+    component: TabBarIndex,
     redirect: '/home'
   },
   {
     path: '/home',
-    component: () => import('views/home/Home')
+    component: TabBarIndex,
+    children: [{
+      path: '',
+      component: () => import('views/home/Home')
+    }]
   },
   {
     path: '/category',
-    component: () => import('views/category/Category')
+    component: TabBarIndex,
+    children: [{
+      path: '',
+      component: () => import('views/category/Category')
+    }]
   },
   {
     path: '/shopcart',
-    component: () => import('views/shopcart/Shopcart')
+    component: TabBarIndex,
+    children: [{
+      path: '',
+      component: () => import('views/shopcart/Shopcart')
+    }]
   },
   {
     path: '/profile',
-    component: () => import('views/profile/Profile')
+    component: TabBarIndex,
+    children: [{
+      path: '',
+      component: () => import('views/profile/Profile')
+    }]
   },
+  {
+    path: '/detail/:id',
+    component: () => import('views/detail/Detail')
+  }
 ]
 const router = new VueRouter({
   routes,
